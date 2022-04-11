@@ -1,99 +1,66 @@
+// //1
+// for (let i = 0; i <= 11; i++) {
+//   if (i === 0) {
+//     console.log(`0 - это ноль`)}
+//     else if (i % 2 === 0) {
+//       console.log(`${i} - это чётное число`)
+//     }else console.log(`${i} - это нечётное число`);
+  
+// }
+//2
+// let arr = [1, 2, 3, 4, 5, 6, 7];
+// arr.splice(3, 2);
+// console.log(arr);
 
-// let a = 1, b = 1, c, d;
+//3
+// function randomArrItem() {
+//   return Math.floor(Math.random() * 11);
+// }
+// let arr = new Array(5);
+// for (let i = 0; i < arr.length; i++) {
+//   arr[i] = randomArrItem();
+// }
+// console.log(arr);
+// for (let i = 0; i < arr.length; i++) {
+//   arr[i] = Math.pow(arr[i],2);
+// }
+// console.log(arr);
 
-//   /*
-//   инкремент увеличивает a на 1 с=2
-//    */
-//   c = ++a;
-//   console.log(c);
+//4
+// function randomArrItem() {
+//   return Math.floor(Math.random() * 11);
+// }
+// let arr = new Array(5);
+// const arrFree3 = [];
+// const arr10 = [];
+// for (let i = 0; i < arr.length; i++) {
+//   arr[i] = randomArrItem();
+// }
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[i] !== 3) {
+//     arrFree3.push(arr[i]);
+//     arr10.push(arr[i] + arr[i] / 10);
+//   } 
+// }
+// console.log(arr, arrFree3, arr10);
 
-//   /*
-//   постфиксная форма возвращает старое значение до инкремента d=1
-//    */
-//   d = b++;
-//   console.log(d);
-
-//   /*
-//   значение a = 2 после предыдущего, ++a добавляет еще 1 с=5
-//    */
-//   c = 2 + ++a;
-//   console.log(c);
-
-//   /*
-//   постфиусная форма в предыдущем примере увеличила b и теперь b=3 но в этом примере постфиксная форма передаёт предыдущее значение b=2 поэтому d=4
-//    */
-//   d = 2 + b++;
-//   console.log(d);
-
+// //5
+// function logs(a) {
 //   console.log(a);
-//   console.log(b);
+//   let b = a + 1;
+//   return b;  
+// }
+// // let i = 15
+// // i = logs(i);
+// // console.log(i);
+// for (let i = 0; i <= 9; i = logs (i)){/* здесь пусто */}
 
-  //2
-  
-//   "use strict";
-
-//   let a = 2;
-//   let x = 1 + (a *= 2);
-
-//   /*
-//   a *= 2 равносильно a = a*2, то есть переменной a присвоили новое значение 
-//   x = 1 + 4
-
-//    */
-//   console.log(x);
-//   console.log(a);
-
-  // //3
-  // const a = Number(prompt (`Введите a`));
-  // const b = Number(prompt (`Введите b`));
-  
-  // function result(c,d) {
-  //   if (c>=0 && d>=0) {
-  //     console.log(c-d)
-  //   } else if (c<=0 && d<=0) {
-  //     console.log(c*d)
-  //   } else if ((c>0 && d<0) || (c<0 && d>0)) {
-  //     console.log(c+d)
-  //   }
-  // }
-  // result(a,b);
-  // //4
-  // const sum = (a, b) =>  a + b;
-  // const raznost = (a,b) => {
-  //   if (a >= b) {
-  //     return(a - b)} 
-  //     else { 
-  //       return(b - a) }};
-  // const del = (a,b) => a/b;
-  // const umnog = (a,b) => a*b;
-  
-  // console.log(sum (1, 10));
-  //5
-  function declinationOfNumber(count, one, two, five) {
-    const lastDigit = count % 10;
-    switch (lastDigit) {
-      case 0: return (five);
-      case 1: return (one);
-      case 2: return (two);
-      case 3: return (two);
-      case 4: return (two);
-      case 5: return (five);
-      case 6: return (five);
-      case 7: return (five);
-      case 8: return (five);
-      case 9: return (five);
-      default:
-        break;
-    }
-  } 
-  const applesNumber = 15553;
-  // Получаем от функции одно из слов "яблоко", "яблока" или "яблок".
-  const word = declinationOfNumber(applesNumber, "яблоко", "яблока", "яблок");
-  // Выводим корректную строку, например:
-  // "У меня есть 1 яблоко."
-  // "У меня есть 2 яблока."
-  // "У меня есть 5 яблок."
-  // При любом целом, положительном числе в applesNumber, строка, которая
-  // выводится в console.log, должна иметь правильное склонение слова "яблоко".
-  console.log(`У меня есть ${applesNumber} ${word}.`);
-
+//6
+function xString(s) {
+  return x = s + 'x';
+}
+let str = '';
+for (i = 0; i < 20; i++) {
+  console.log(xString(str));
+  str = xString(str);
+}
