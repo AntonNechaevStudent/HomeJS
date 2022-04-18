@@ -1,66 +1,134 @@
 // //1
-// for (let i = 0; i <= 11; i++) {
-//   if (i === 0) {
-//     console.log(`0 - это ноль`)}
-//     else if (i % 2 === 0) {
-//       console.log(`${i} - это чётное число`)
-//     }else console.log(`${i} - это нечётное число`);
-  
-// }
-//2
-// let arr = [1, 2, 3, 4, 5, 6, 7];
-// arr.splice(3, 2);
-// console.log(arr);
+// const numbers = {
+//   keyin1: 1,
+//   keyin2: 2,
+//   keyin3: 3,
+//   keyin4: 4,
+//   keyin5: 5,
+//   keyin6: 6,
+//   keyin7: 7,
+//   }
+//   for (let key in numbers) {
+//     if (numbers[key] >=3) {
+//       console.log(`Key: ${key}, volume: ${numbers[key]} >= 3`);
+//     }
+//   }
 
-//3
-// function randomArrItem() {
-//   return Math.floor(Math.random() * 11);
-// }
-// let arr = new Array(5);
-// for (let i = 0; i < arr.length; i++) {
-//   arr[i] = randomArrItem();
-// }
-// console.log(arr);
-// for (let i = 0; i < arr.length; i++) {
-//   arr[i] = Math.pow(arr[i],2);
-// }
-// console.log(arr);
+// //2
+// const post = {
+//   author: "John", // вывести этот текст
+//   postId: 23,
+//   comments: [
+//     {
+//       userId: 10,
+//       userName: "Alex",
+//       text: "lorem ipsum",
+//       rating: {
+//         likes: 10,
+//         dislikes: 2, // вывести это число
+//       },
+//     },
+//     {
+//       userId: 5, // вывести это число
+//       userName: "Jane",
+//       text: "lorem ipsum 2", // вывести этот текст
+//       rating: {
+//         likes: 3,
+//         dislikes: 1,
+//       },
+//     },
+//   ],
+// };
+// console.log(post.author);
+// console.log(post.comments[0].rating.dislikes);
+// console.log(post.comments[1].userId);
+// console.log(post.comments[1].text);
+
+// //3
+// const products = [
+//   {
+//     id: 3,
+//     price: 200,
+//   },
+//   {
+//     id: 4,
+//     price: 900,
+//   },
+//   {
+//     id: 1,
+//     price: 1000,
+//   },
+// ];
+// products.forEach(element => {
+//   element.price = element.price * 0.85;
+//   console.log(element);
+// });
 
 //4
-// function randomArrItem() {
-//   return Math.floor(Math.random() * 11);
-// }
-// let arr = new Array(5);
-// const arrFree3 = [];
-// const arr10 = [];
-// for (let i = 0; i < arr.length; i++) {
-//   arr[i] = randomArrItem();
-// }
-// for (let i = 0; i < arr.length; i++) {
-//   if (arr[i] !== 3) {
-//     arrFree3.push(arr[i]);
-//     arr10.push(arr[i] + arr[i] / 10);
-//   } 
-// }
-// console.log(arr, arrFree3, arr10);
+// const products = [
+//   {
+//     id: 3,
+//     price: 127,
+//     photos: [
+//       "1.jpg",
+//       "2.jpg",
+//     ],
+//   },
+//   {
+//     id: 5,
+//     price: 499,
+//     photos: [],
+//   },
+//   {
+//     id: 10,
+//     price: 26,
+//     photos: [
+//       "3.jpg",
+//     ],
+//   },
+//   {
+//     id: 8,
+//     price: 78,
+//   },
+// ];
+// console.log(products.filter(
+//   product => "photos" in product && product.photos.length !== 0
+// ));
+
+// products.sort((product1, product2) => product1.price - product2.price);
+// console.log(products);
 
 // //5
-// function logs(a) {
-//   console.log(a);
-//   let b = a + 1;
-//   return b;  
-// }
-// // let i = 15
-// // i = logs(i);
-// // console.log(i);
-// for (let i = 0; i <= 9; i = logs (i)){/* здесь пусто */}
+// const en = ["mon",  "tue",  "wed",  "thu",  "fri",  "sat",  "sun"];
+// const ru = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"];
+// //const obj = {key}
+// en.forEach((element, i) => {
+//   let obj = {[element]: ru[i]} 
+//   //console.log(obj);
+//   en[i] = obj;
+// });
+// console.log(en);
 
 //6
-function xString(s) {
-  return x = s + 'x';
+const numbers = {
+  key1: {
+  keyin1: 1,
+  keyin2: 2,
+  keyin3: 3,
+  },
+  key2: {
+  keyin1: 4,
+  keyin2: 5,
+  keyin3: 6,
+  },
+  }
+function allKeys (key) {
+  
+  for (let n in key) {
+      console.log(n);
+      
+  }
 }
-let str = '';
-for (i = 0; i < 20; i++) {
-  console.log(xString(str));
-  str = xString(str);
-}
+allKeys(numbers);
+
+
