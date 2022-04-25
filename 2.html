@@ -1,105 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Homework 5</title>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+  <style>
+    .message {
+      width: 150px;
+      padding: 20px;
+      background: lightgoldenrodyellow;
+      border: 1px solid orange;
+      visibility: hidden;
+    }
+    .error {
+      border: 0.3rem solid red;
+    }
+  </style>
 </head>
-
 <body>
-    <!--
+<!--
 Обязательное задание.
 
 Выполнить все задачи в теге script. Комментарии, в которых написаны задачи, не
 стирать, код с решением задачи пишем под комментарием.
 -->
 
-    <p class="dropdown">Привет :)</p>
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown button
-  </button>
-        <div class="menu dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-    </div>
+<input id="from" type="text">
+В инпуте написано: <span></span>
 
-    <script>
-        "use strict";
+<br>
 
-        /*
-        1. Ко всем элементам, имеющим класс "dropdown-item" добавить еще один класс
-        "super-dropdown", необходимо использовать методы forEach и querySelectorAll и
-        свойство classList у элементов.
-         */
-        // const dropDown = document.querySelectorAll('.dropdown-item');
-        // console.log(dropDown);
-        // dropDown.forEach(element => {
-        //     console.log(element.classList);
-        //     element.classList.add('super-dropdown');
-            
-        // });
-        // console.log(document);
+<button class="messageBtn">Показать блок</button>
+<div class="message">
+  Привет :)
+</div>
 
-        /*
-        2. У элемента с классом btn необходимо убрать класс "btn-secondary", если он
-        присутствует у этого элемента, либо добавить, если такого класса у элемента
-        не было.
-         */
-        // const btnS = document.querySelector('.btn');
-        // console.log (btnS.className);
-        // btnS.classList.toggle('btn-secondary');
-        // console.log(btnS.className);
-        // btnS.classList.toggle('btn-secondary');
-        // console.log(btnS.className);
+<br>
+
+<form>
+  <label>
+    Первый инпут:
+    <input class="form-control" type="text">
+  </label>
+  <br>
+  <br>
+  <label>
+    Второй инпут:
+    <select class="form-control">
+      <option value=""></option>
+      <option value="1">Один</option>
+      <option value="2">Два</option>
+    </select>
+  </label>
+  <br>
+  <br>
+  <button>Отправить</button>
+</form>
+
+<script>
+  "use strict";
+
+  /*
+  1. При изменении значения в input с id="from", значение содержащееся в нем
+  должно моментально отображаться в span. То есть при печати в input'е тег span
+  также должен меняться.
+  */
+  const input = document.getElementById('from');
+  input.addEventListener('input', (event) => {
+    const to = document.querySelector('span');
+    to.textContent = event.target.value;
+    //console.log(event.data);
+    console.log(to);
+  });
+
+    /*
+    2. При клике на кнопку с классом messageBtn необходимо элементу с классом
+    message:
+    1) добавить два класса: animate__animated и animate__fadeInLeftBig
+    2) поставить данному элементу стиль visibility в значение 'visible'.
+    */
+  const messageBtn = document.querySelector('.messageBtn');
+  messageBtn.addEventListener('click', (event) => {
+    const message = document.querySelector('.message');
+    const str = message.getAttribute('class');
+    const str2 = 'animate__animated animate__fadeInLeftBig';
+    message.setAttribute('class', (str +' '+ str2));
+      
+  });
+
+  /*
+  3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
+  форме. Если какое-либо поле не заполнено, форма не должна отправляться, также
+  должны быть подсвечены незаполненные поля (необходимо поставить класс error
+  незаполненным полям).
+  Как только пользователь начинает заполнять какое-либо поле, необходимо,
+  при вводе в данное поле, произвести проверку:
+  Если поле пустое, необходимо данное поле подсветить (поставить класс error
+  данному полю).
+  Если поле было чем-либо заполнено, подсветку (класс error) необходимо убрать.
+   */
+  const formLabel1 = document.querySelector ('input.form-control');
+  const formLabel2 = document.querySelector ('select.form-control');
+  const submitForm = document.querySelector ('form');
+  formLabel1.addEventListener('input', (event) => {
+    if (formLabel1.value.length) {
+      formLabel1.classList.remove('error');
+      console.log(formLabel1.value.length);
+    } else {
+      formLabel1.classList.add('error');
+    }
+  });
+  formLabel2.addEventListener('change', (event) => {
+    if (formLabel2.value.length) {
+      formLabel2.classList.remove('error');
+      console.log(formLabel2.value.length);
+    } else {
+      formLabel2.classList.add('error');
+    }
+  });
+  submitForm.addEventListener('submit', (event) => {
+    if (formLabel1.value === '') {
+      event.preventDefault();
+    }
+
+  });
+
+  console.log(formLabel2.value);
 
 
-
-        /*
-        3. Необходимо удалить класс "dropdown-menu" у элемента, у которого
-        присутствует класс "menu".
-         */
-        // const menu = document.querySelectorAll('.menu');
-        // console.log(menu);
-        // menu.forEach(element => {
-        //     console.log(element.classList);
-        //     element.classList.remove('dropdown-menu');
-            
-        // });
-        
-        /*
-        4. Используя метод insertAdjacentHTML добавьте после div'a с классом
-        "dropdown" следующую разметку:
-          <a href="#">link</a>
-         */
-        // const divDropDown = document.querySelector('div.dropdown');
-        // console.log(divDropDown);
-        // divDropDown.insertAdjacentHTML("afterend",'<a href="#">link</a>');
-        // console.log(document.body);
-        /*
-        5. У элемента с id "dropdownMenuButton" замените id на "superDropdown".
-         */
-        // const button = document.getElementById('dropdownMenuButton');
-        // button.setAttribute('id', 'superDropdown');
-        // console.log(button);
-
-        /*
-        6. Добавьте атрибут data-dd со значением 3 элементу у которого существует
-        атрибут "aria-labelledby" равный "dropdownMenuButton" используя dataset.
-         */
-        // const elem = document.querySelector(`       [aria-labelledby=dropdownMenuButton]`);
-        // console.log(elem);
-        // elem.dataset.dd = '3';
-
-        /*
-        7. Удалите атрибут type у элемента с классом "dropdown-toggle".
-         */
-        const elem = document.querySelector('.dropdown-toggle');
-        elem.removeAttribute('type');
-        console.log(elem);
-    </script>
+</script>
 </body>
-
 </html>
