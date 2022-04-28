@@ -1,133 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Homework</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
-  <style>
-    .message {
-      width: 150px;
-      padding: 20px;
-      background: lightgoldenrodyellow;
-      border: 1px solid orange;
-      visibility: hidden;
-    }
-    .error {
-      border: 0.3rem solid red;
-    }
-  </style>
-</head>
-<body>
-<!--
-Обязательное задание.
 
-Выполнить все задачи в теге script. Комментарии, в которых написаны задачи, не
-стирать, код с решением задачи пишем под комментарием.
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+</head>
+
+<body>
+    <!--
+Дополнительное задание.
+
+Дан макет сайта
+https://www.figma.com/file/SbfOi2i4S1pIs0G6uOLPCx/shop-(Copy)?node-id=73%3A140м 
+
+В нем представлены товары, добавленные в корзину 
+
+Вам необходимо создать объект cart  в котором будет 
+1. ссылка на картинку
+2. Название товара (MANGO  PEOPLE  T-SHIRT)
+3. цена (Price: $300 	) 
+4. цвет (Color: Red)
+5. Размер (Size: Xl	)
+6. Количество (Quantity:2)
+
+Отобразить на странице 2 товара добавленных в корзину
 -->
 
-<input id="from" type="text">
-В инпуте написано: <span></span>
 
-<br>
-
-<button class="messageBtn">Показать блок</button>
-<div class="message">
-  Привет :)
-</div>
-
-<br>
-
-<form>
-  <label>
-    Первый инпут:
-    <input class="form-control" type="text">
-  </label>
-  <br>
-  <br>
-  <label>
-    Второй инпут:
-    <select class="form-control">
-      <option value=""></option>
-      <option value="1">Один</option>
-      <option value="2">Два</option>
-    </select>
-  </label>
-  <br>
-  <br>
-  <button>Отправить</button>
-</form>
-
-<script>
-  "use strict";
-
-  /*
-  1. При изменении значения в input с id="from", значение содержащееся в нем
-  должно моментально отображаться в span. То есть при печати в input'е тег span
-  также должен меняться.
-  */
-  const input = document.getElementById('from');
-  input.addEventListener('input', (event) => {
-    const to = document.querySelector('span');
-    to.textContent = event.target.value;
-    //console.log(event.data);
-    console.log(to);
-  });
-
-    /*
-    2. При клике на кнопку с классом messageBtn необходимо элементу с классом
-    message:
-    1) добавить два класса: animate__animated и animate__fadeInLeftBig
-    2) поставить данному элементу стиль visibility в значение 'visible'.
-    */
-  const messageBtn = document.querySelector('.messageBtn');
-  messageBtn.addEventListener('click', (event) => {
-    const message = document.querySelector('.message');
-    const str = message.getAttribute('class');
-    const str2 = 'animate__animated animate__fadeInLeftBig';
-    message.setAttribute('class', (str +' '+ str2));
-      
-  });
-
-  /*
-  3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
-  форме. Если какое-либо поле не заполнено, форма не должна отправляться, также
-  должны быть подсвечены незаполненные поля (необходимо поставить класс error
-  незаполненным полям).
-  Как только пользователь начинает заполнять какое-либо поле, необходимо,
-  при вводе в данное поле, произвести проверку:
-  Если поле пустое, необходимо данное поле подсветить (поставить класс error
-  данному полю).
-  Если поле было чем-либо заполнено, подсветку (класс error) необходимо убрать.
-   */
-  const formLabel1 = document.querySelector ('input.form-control');
-  const formLabel2 = document.querySelector ('select.form-control');
-  const submitForm = document.querySelector ('form');
-  formLabel1.addEventListener('input', (event) => {
-    if (formLabel1.value.length) {
-      formLabel1.classList.remove('error');
-      console.log(formLabel1.value.length);
-    } else {
-      formLabel1.classList.add('error');
-    }
-  });
-  formLabel2.addEventListener('change', (event) => {
-    if (formLabel2.value.length) {
-      formLabel2.classList.remove('error');
-      console.log(formLabel2.value.length);
-    } else {
-      formLabel2.classList.add('error');
-    }
-  });
-  submitForm.addEventListener('submit', (event) => {
-    if (formLabel1.value === '') {
-      event.preventDefault();
-    }
-
-  });
-
-  console.log(formLabel2.value);
-
-
-</script>
+    <script>
+        "use strict";
+    </script>
 </body>
+
 </html>
