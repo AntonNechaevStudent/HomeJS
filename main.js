@@ -1,99 +1,134 @@
+// //1
+// const numbers = {
+//   keyin1: 1,
+//   keyin2: 2,
+//   keyin3: 3,
+//   keyin4: 4,
+//   keyin5: 5,
+//   keyin6: 6,
+//   keyin7: 7,
+//   }
+//   for (let key in numbers) {
+//     if (numbers[key] >=3) {
+//       console.log(`Key: ${key}, volume: ${numbers[key]} >= 3`);
+//     }
+//   }
 
-// let a = 1, b = 1, c, d;
+// //2
+// const post = {
+//   author: "John", // вывести этот текст
+//   postId: 23,
+//   comments: [
+//     {
+//       userId: 10,
+//       userName: "Alex",
+//       text: "lorem ipsum",
+//       rating: {
+//         likes: 10,
+//         dislikes: 2, // вывести это число
+//       },
+//     },
+//     {
+//       userId: 5, // вывести это число
+//       userName: "Jane",
+//       text: "lorem ipsum 2", // вывести этот текст
+//       rating: {
+//         likes: 3,
+//         dislikes: 1,
+//       },
+//     },
+//   ],
+// };
+// console.log(post.author);
+// console.log(post.comments[0].rating.dislikes);
+// console.log(post.comments[1].userId);
+// console.log(post.comments[1].text);
 
-//   /*
-//   инкремент увеличивает a на 1 с=2
-//    */
-//   c = ++a;
-//   console.log(c);
+// //3
+// const products = [
+//   {
+//     id: 3,
+//     price: 200,
+//   },
+//   {
+//     id: 4,
+//     price: 900,
+//   },
+//   {
+//     id: 1,
+//     price: 1000,
+//   },
+// ];
+// products.forEach(element => {
+//   element.price = element.price * 0.85;
+//   console.log(element);
+// });
 
-//   /*
-//   постфиксная форма возвращает старое значение до инкремента d=1
-//    */
-//   d = b++;
-//   console.log(d);
+//4
+// const products = [
+//   {
+//     id: 3,
+//     price: 127,
+//     photos: [
+//       "1.jpg",
+//       "2.jpg",
+//     ],
+//   },
+//   {
+//     id: 5,
+//     price: 499,
+//     photos: [],
+//   },
+//   {
+//     id: 10,
+//     price: 26,
+//     photos: [
+//       "3.jpg",
+//     ],
+//   },
+//   {
+//     id: 8,
+//     price: 78,
+//   },
+// ];
+// console.log(products.filter(
+//   product => "photos" in product && product.photos.length !== 0
+// ));
 
-//   /*
-//   значение a = 2 после предыдущего, ++a добавляет еще 1 с=5
-//    */
-//   c = 2 + ++a;
-//   console.log(c);
+// products.sort((product1, product2) => product1.price - product2.price);
+// console.log(products);
 
-//   /*
-//   постфиусная форма в предыдущем примере увеличила b и теперь b=3 но в этом примере постфиксная форма передаёт предыдущее значение b=2 поэтому d=4
-//    */
-//   d = 2 + b++;
-//   console.log(d);
+// //5
+// const en = ["mon",  "tue",  "wed",  "thu",  "fri",  "sat",  "sun"];
+// const ru = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"];
+// //const obj = {key}
+// en.forEach((element, i) => {
+//   let obj = {[element]: ru[i]} 
+//   //console.log(obj);
+//   en[i] = obj;
+// });
+// console.log(en);
 
-//   console.log(a);
-//   console.log(b);
-
-  //2
+//6
+const numbers = {
+  key1: {
+  keyin1: 1,
+  keyin2: 2,
+  keyin3: 3,
+  },
+  key2: {
+  keyin1: 4,
+  keyin2: 5,
+  keyin3: 6,
+  },
+  }
+function allKeys (key) {
   
-//   "use strict";
+  for (let n in key) {
+      console.log(n);
+      
+  }
+}
+allKeys(numbers);
 
-//   let a = 2;
-//   let x = 1 + (a *= 2);
-
-//   /*
-//   a *= 2 равносильно a = a*2, то есть переменной a присвоили новое значение 
-//   x = 1 + 4
-
-//    */
-//   console.log(x);
-//   console.log(a);
-
-  // //3
-  // const a = Number(prompt (`Введите a`));
-  // const b = Number(prompt (`Введите b`));
-  
-  // function result(c,d) {
-  //   if (c>=0 && d>=0) {
-  //     console.log(c-d)
-  //   } else if (c<=0 && d<=0) {
-  //     console.log(c*d)
-  //   } else if ((c>0 && d<0) || (c<0 && d>0)) {
-  //     console.log(c+d)
-  //   }
-  // }
-  // result(a,b);
-  // //4
-  // const sum = (a, b) =>  a + b;
-  // const raznost = (a,b) => {
-  //   if (a >= b) {
-  //     return(a - b)} 
-  //     else { 
-  //       return(b - a) }};
-  // const del = (a,b) => a/b;
-  // const umnog = (a,b) => a*b;
-  
-  // console.log(sum (1, 10));
-  //5
-  function declinationOfNumber(count, one, two, five) {
-    const lastDigit = count % 10;
-    switch (lastDigit) {
-      case 0: return (five);
-      case 1: return (one);
-      case 2: return (two);
-      case 3: return (two);
-      case 4: return (two);
-      case 5: return (five);
-      case 6: return (five);
-      case 7: return (five);
-      case 8: return (five);
-      case 9: return (five);
-      default:
-        break;
-    }
-  } 
-  const applesNumber = 15553;
-  // Получаем от функции одно из слов "яблоко", "яблока" или "яблок".
-  const word = declinationOfNumber(applesNumber, "яблоко", "яблока", "яблок");
-  // Выводим корректную строку, например:
-  // "У меня есть 1 яблоко."
-  // "У меня есть 2 яблока."
-  // "У меня есть 5 яблок."
-  // При любом целом, положительном числе в applesNumber, строка, которая
-  // выводится в console.log, должна иметь правильное склонение слова "яблоко".
-  console.log(`У меня есть ${applesNumber} ${word}.`);
 
